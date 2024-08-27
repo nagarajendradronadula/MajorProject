@@ -2,8 +2,8 @@ if(process.env.NODE_ENV !== "production"){
   require('dotenv').config();
 }
 // console.log(process.env.secret);
-console.log("MongoDB URL:", process.env.ATLASDB);
-console.log("Session Secret:", process.env.SECRET);
+//console.log("MongoDB URL:", process.env.ATLASDB);
+// console.log("Session Secret:", process.env.SECRET);
 
 
 const express = require("express");
@@ -26,7 +26,7 @@ const userRouter = require("./routes/user.js");
 
 const dbUrl = process.env.ATLASDB;
 
-console.log("MongoDB URL (dbUrl):", dbUrl);
+// console.log("MongoDB URL (dbUrl):", dbUrl);
 
 if (!dbUrl) {
   console.error("Error: MongoDB URL is not defined. Check your environment variables.");
