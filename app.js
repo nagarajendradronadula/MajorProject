@@ -74,9 +74,9 @@ mongoose.connect(dbUrl)
   console.log("Database connection error:", err);
 });
 
-app.get("/", (req, res) => {
-  res.send("Hi, this is the root route");
-});
+// app.get("/", (req, res) => {
+//   res.send("Hi, this is the root route");
+// });
 
 app.use(session(sessionOptions));
 app.use(flash());
