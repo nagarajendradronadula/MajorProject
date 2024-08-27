@@ -1,4 +1,4 @@
-if(process.env.NODE_ENV != "production"){
+if(process.env.NODE_ENV !== "production"){
   require('dotenv').config();
 }
 // console.log(process.env.secret);
@@ -26,11 +26,18 @@ const userRouter = require("./routes/user.js");
 
 const dbUrl = process.env.ATLASDB;
 
+console.log("MongoDB URL (dbUrl):", dbUrl);
+
+if (!dbUrl) {
+  console.error("Error: MongoDB URL is not defined. Check your environment variables.");
+  process.exit(1);  // Exit if dbUrl is not set, to prevent further errors
+}
+
 const store = MongoStore.create({
   mongoUrl: dbUrl,
-  crypto:{
-    secret: process.env.SECRET,
-  },
+  // crypto:{
+  //   secret: process.env.SECRET,
+  // },
   touchAfter: 24 * 60 * 60,
 });
 
