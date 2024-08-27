@@ -20,6 +20,8 @@ const listingRouter = require("./routes/listing.js");
 const reviewsRouter = require("./routes/reviews.js");
 const userRouter = require("./routes/user.js");
 
+const MongoStore = require('connect-mongo');
+
 const dbUrl = process.env.ATLASDB;
 
 const store = MongoStore.create({
